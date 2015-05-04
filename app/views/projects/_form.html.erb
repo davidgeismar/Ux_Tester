@@ -1,25 +1,20 @@
-<%= form_for @project do |f| %>
+<%= simple_form_for @project do |f| %>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+  <%= image_tag("ninja-tester.png") %>
+  <p id="catchline"><i>Follow the path of the ninja tester young apprentice</i></p>
+</div>
+      <div class=" col-xs-8 ">
+        <h1 class="text-center">CREATE YOUR NEW PROJECT</h1>
+        <%= f.input :name, label: "Choose a great name for your project !" %>
+        <%= f.input :description, label: "Give a short and precise description" %>
+        <%= f.input :url, placeholder: "Type the link to your website"%>
+        <%= f.input :public, placeholder: "public or private" %>
+        <%= f.button :submit, class: "btn-success" %>
 
-  <div class="form-inputs">
-    <%= f.text_field :name, placeholder: "project name" %>
-    <%= f.text_field :description, placeholder: "project description" %>
-    <%= f.text_field :public, placeholder: "public or private" %>
-    <%= f.text_field :status, placeholder: "pending, public, fermé" %>
-    <%= f.text_field :url, placeholder: "url"%>
-    <%= f.text_field :mode, placeholder: "mode comparaison" %>
-  </div>
-  <%= f.fields_for :slides do |s| %>
-        <%= s.text_field :name, placeholder: "nom de la slide" %><br />
-        <%= s.text_field :description, placeholder: "description de la slide" %><br />
-        <%= s.text_field :slide_type, placeholder: "type de slide"  %><br />
-        <%= s.file_field :picture %><br />
-
-  <%= s.fields_for :questions do |q| %>
-    <%= q.text_field :description, placeholder: "votre question" %><br />
-  <% end %>
-<% end %>
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+      </div>
+    </div>
+</div>
 <% end %>

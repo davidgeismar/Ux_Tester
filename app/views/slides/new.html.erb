@@ -1,20 +1,22 @@
-<%= form_for [@project, @slide] do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-4">
+      <%= image_tag("ninja-tester.png") %>
+      <p id="catchline"><i>Time to upload your slide UxSan</i></p>
+    </div>
 
+    <%= simple_form_for [@project, @slide] do |f| %>
 
-  <div class="form-inputs">
-    <%= f.text_field :name, placeholder: "slide name" %>
-    <%= f.text_field :description, placeholder: "slide description" %>
+  <div class=" col-xs-8 ">
+    <h1 class="text-center">ADD A SLIDE TO YOUR PROJECT</h1>
+    <%= f.input :name, label: "Give a cool name to your slide", placeholder: "slide name" %>
+    <%= f.input :description, placeholder: "slide description" %>
 
-    <%= f.text_field :slide_type, placeholder: "type de slide"  %>
+    <%= f.input :slide_type, placeholder: "type de slide"  %>
     <%= f.file_field :picture %><br />
+    <%= f.button :submit, class: "btn btn-success" %>
   </div>
-  <%= f.fields_for :questions do |s| %>
+</div>
 
-        <%= s.text_field :description, placeholder: "votre question" %><br />
-
-        <% end %>
-<div class="form-actions">
-    <%= f.button :submit %>
-  </div>
 <% end %>
 
