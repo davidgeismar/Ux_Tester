@@ -1,0 +1,20 @@
+<%= form_for [@project, @slide] do |f| %>
+
+
+  <div class="form-inputs">
+    <%= f.text_field :name, placeholder: "slide name" %>
+    <%= f.text_field :description, placeholder: "slide description" %>
+
+    <%= f.text_field :slide_type, placeholder: "type de slide"  %>
+    <%= f.file_field :picture %><br />
+  </div>
+  <%= f.fields_for :questions do |s| %>
+
+        <%= s.text_field :description, placeholder: "votre question" %><br />
+
+        <% end %>
+<div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
+

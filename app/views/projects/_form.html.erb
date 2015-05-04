@@ -1,0 +1,25 @@
+<%= form_for @project do |f| %>
+
+
+  <div class="form-inputs">
+    <%= f.text_field :name, placeholder: "project name" %>
+    <%= f.text_field :description, placeholder: "project description" %>
+    <%= f.text_field :public, placeholder: "public or private" %>
+    <%= f.text_field :status, placeholder: "pending, public, fermé" %>
+    <%= f.text_field :url, placeholder: "url"%>
+    <%= f.text_field :mode, placeholder: "mode comparaison" %>
+  </div>
+  <%= f.fields_for :slides do |s| %>
+        <%= s.text_field :name, placeholder: "nom de la slide" %><br />
+        <%= s.text_field :description, placeholder: "description de la slide" %><br />
+        <%= s.text_field :slide_type, placeholder: "type de slide"  %><br />
+        <%= s.file_field :picture %><br />
+
+  <%= s.fields_for :questions do |q| %>
+    <%= q.text_field :description, placeholder: "votre question" %><br />
+  <% end %>
+<% end %>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

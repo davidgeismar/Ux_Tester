@@ -1,0 +1,81 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+
+<p>
+  <strong>Public:</strong>
+  <%= @project.public %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @project.status %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @project.url %>
+</p>
+
+<p>
+  <strong>Mode:</strong>
+  <%= @project.mode %>
+</p>
+
+<% @slides.each do |slide| %>
+  <p><%= slide.name %></p>
+  <p><%= slide.description %></p>
+  <p><% slide.questions.each do |question| %></p>
+    <p><%= question.description %></p>
+    <p><% question.answers.each do |answer| %></p>
+      <p><%=answer.content %></p>
+      <p><%= answer.user.first_name %> <%= answer.user.last_name %></p>
+    <% end %>
+
+<div class="input-js">
+  <input class="content"type="text">
+  <input class="question_id" type="hidden" value=<%=question.id%>>
+  <button class="post">Go</button>
+</div>
+<% end %>
+<%= image_tag slide.picture.url(:medium) %>
+<% end %>
+
+<%= link_to 'Ajoutez une slide au projet', new_project_slide_path(@project), class: "btn btn-success" %>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
+
+
+<%= content_for :after_js do %>
+      <script>
+        $(document).ready(function() {
+            $(".post").on('click', function(event){
+              var parent = $(this ).parent('.input-js');
+              var content = parent.children('.content').first().val();
+
+              //var content = $(parent + "> .content").val();
+              //var question_id = $(parent + "> .question_id").val();
+              var question_id = parent.children('.question_id').first().val();
+              alert("Content = " + content + " Question id = " + question_id);
+              $.ajax({url: "<%=answers_path%>",
+                  dataType: "script",
+                  data: {answer: {content: content,
+                  question_id: parseInt(question_id)
+                  }},
+                  type: "POST",
+              });
+            });
+         });
+  </script>
+
+
+    <% end %>
