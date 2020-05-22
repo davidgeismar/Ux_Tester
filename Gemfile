@@ -32,6 +32,6 @@ end
 
 group :production do
   gem "rails_12factor"
-  gem "puma"
+  gem "puma", ">= 3.12.6"
   gem "rack-timeout"
 end
