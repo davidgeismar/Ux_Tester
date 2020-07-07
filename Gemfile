@@ -12,7 +12,7 @@ gem "pundit"
 gem "paperclip"
 gem "aws-sdk", "< 2.0"
 gem 'omniauth-facebook'
-gem "jquery-rails"
+gem "jquery-rails", ">= 4.0.4"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "bootstrap-sass"
