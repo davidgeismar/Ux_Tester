@@ -11,7 +11,7 @@ gem "high_voltage"
 gem "pundit"
 gem "paperclip"
 gem "aws-sdk", "< 2.0"
-gem 'omniauth-facebook'
+gem 'omniauth-facebook', '>= 2.0.0'
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
 gem "uglifier"
