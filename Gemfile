@@ -27,7 +27,7 @@ group :development, :test do
   gem "quiet_assets"
   gem "pry-byebug"
   gem "pry-rails"
-  gem "letter_opener"
+  gem "letter_opener", ">= 1.3.0"
 end
 
 group :production do
