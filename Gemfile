@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "2.2.0"
 
-gem "rails", "4.2.0"
+gem "rails", "5.2.8.1"
 gem "pg"
 gem "figaro"
 gem "simple_form"
