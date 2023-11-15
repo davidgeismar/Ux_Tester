@@ -2,22 +2,22 @@ source "https://rubygems.org"
 
 ruby "2.2.0"
 
-gem "rails", "4.2.0"
+gem "rails", "4.2.1"
 gem "pg"
 gem "figaro"
-gem "simple_form"
+gem "simple_form", ">= 3.1.1"
 gem "country_select"
 gem "high_voltage"
 gem "pundit"
 gem "paperclip"
-gem "aws-sdk", "< 2.0"
+gem "aws-sdk", ">= 1.65.0", "< 2.0"
 gem 'omniauth-facebook'
-gem "jquery-rails"
-gem "sass-rails", "~> 5.0"
+gem "jquery-rails", ">= 4.0.4"
+gem "sass-rails", "~> 5.0", ">= 5.0.2"
 gem "uglifier"
 gem "bootstrap-sass"
 gem "font-awesome-sass"
-gem "rails-i18n"
+gem "rails-i18n", ">= 4.0.4"
 
 group :development, :test do
   gem "spring"
