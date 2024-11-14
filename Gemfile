@@ -17,7 +17,7 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier"
 gem "bootstrap-sass"
 gem "font-awesome-sass"
-gem "rails-i18n"
+gem "rails-i18n", ">= 8.0.0"
 
 group :development, :test do
   gem "spring"
